@@ -1,0 +1,18 @@
+name: dcs-3
+data-dir: /var/lib/etcd
+
+# Listen addresses
+listen-client-urls: http://172.31.1.168:2379,http://127.0.0.1:2379
+listen-peer-urls: http://172.31.1.168:2380
+
+# Advertise addresses
+advertise-client-urls: http://172.31.1.168:2379
+initial-advertise-peer-urls: http://172.31.1.168:2380
+
+# Cluster config
+initial-cluster: dcs-1=http://172.31.8.151:2380,dcs-2=http://172.31.12.181:2380,dcs-3=http://172.31.1.168:2380
+initial-cluster-token: patroni-etcd-cluster
+initial-cluster-state: new
+
+# Enable v2 API for Patroni compatibility
+enable-v2: true
